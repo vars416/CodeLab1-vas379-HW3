@@ -9,11 +9,11 @@ public class AddForce : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); //get rigidbody of gameobject
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.forward * Thrust);
+        rb.AddForce(transform.forward * Thrust); //add force to forward axis
     }
 }

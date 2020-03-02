@@ -17,7 +17,7 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+        transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime); //moving using force on axis
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,7 +30,7 @@ public class Player_Controller : MonoBehaviour
             SceneManager.LoadScene("WinScreen", LoadSceneMode.Additive); //change to win screen
             if (GameManager.instance.timer > GameManager.instance.highscore) //if timer is higher than highscore
             {
-                GameManager.instance.Highscore = GameManager.instance.Timer;
+                GameManager.instance.Highscore = GameManager.instance.Timer; //set highscore equal to Timer
             }
             //GameManager.instance.Timer = GameManager.instance.highscore; //use timer as highscore
             //GameManager.instance.TimerText.enabled = false;

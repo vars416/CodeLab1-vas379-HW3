@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager instance; //make instance of this variable
 
     private const string PLAY_PREF_KEY_HS = "High Score"; //Player preferences key
     private const string FILE_HS = "/CodeLab1-highscore.txt"; //highscore file
@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
         set
         {
             highscore = value;
-            PlayerPrefs.SetInt(PLAY_PREF_KEY_HS, highscore);
-            File.WriteAllText(Application.dataPath + FILE_HS, highscore + "");
+            //PlayerPrefs.SetInt(PLAY_PREF_KEY_HS, highscore);
+            File.WriteAllText(Application.dataPath + FILE_HS, highscore + ""); //write Highscore on to a file
         }
     }
 
