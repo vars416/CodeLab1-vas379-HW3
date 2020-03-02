@@ -27,6 +27,7 @@ public class Player_Controller : MonoBehaviour
             Debug.Log("You Won");
             Destroy(gameObject);
             SceneManager.LoadScene("WinScreen", LoadSceneMode.Additive);
+            GameManager.instance.TimerText.enabled = false;
         }
     }
 }
