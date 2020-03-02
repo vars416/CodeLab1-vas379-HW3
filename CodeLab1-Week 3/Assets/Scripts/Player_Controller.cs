@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
@@ -25,9 +26,14 @@ public class Player_Controller : MonoBehaviour
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("You Won");
-            Destroy(gameObject);
-            SceneManager.LoadScene("WinScreen", LoadSceneMode.Additive);
-            GameManager.instance.TimerText.enabled = false;
+            Destroy(gameObject); //destroy player
+            SceneManager.LoadScene("WinScreen", LoadSceneMode.Additive); //change to win screen
+            if (GameManager.instance.timer > GameManager.instance.highscore) //if timer is higher than highscore
+            {
+                GameManager.instance.Highscore = GameManager.instance.Timer;
+            }
+            //GameManager.instance.Timer = GameManager.instance.highscore; //use timer as highscore
+            //GameManager.instance.TimerText.enabled = false;
         }
     }
 }

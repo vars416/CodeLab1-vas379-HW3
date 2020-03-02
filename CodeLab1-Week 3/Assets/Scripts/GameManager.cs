@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private const string PLAY_PREF_KEY_HS = "High Score"; //Player preferences key for high score. It is a "const" which means the value is only set once and can never be changed
-    private const string FILE_HS = "/CodeLab1-S2020-highscore.txt"; //Const for name of the highscore file
+    private const string PLAY_PREF_KEY_HS = "High Score"; //Player preferences key
+    private const string FILE_HS = "/CodeLab1-highscore.txt"; //highscore file
 
-    private float timer = 30;
+    public float timer = 30;
     public Text TimerText;
 
     public int Timer
@@ -24,15 +24,15 @@ public class GameManager : MonoBehaviour
 
         set
         {
-            timer = value;
-            if (timer > highscore)
+            timer = value; //
+/*            if (timer > highscore) //if timer is higher than highscore
             {
                 Highscore = (int)timer;
-            }
+            }*/
         }
     }
 
-    private int highscore = 0;
+    public int highscore = 10;
 
     public int Highscore
     {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         set
         {
             highscore = value;
-
+            PlayerPrefs.SetInt(PLAY_PREF_KEY_HS, highscore);
             File.WriteAllText(Application.dataPath + FILE_HS, highscore + "");
         }
     }
@@ -93,10 +93,10 @@ public class GameManager : MonoBehaviour
         timer -= Time.deltaTime; //increase the timer by deltaTime every frame
         TimerText.text = "Time: " + (int)timer + " High Score: " + highscore; //update the text component with the score and time
 
-        if (timer <= 0)
+/*        if (timer <= 0)
         {
             //SceneManager.LoadScene("LoseScreen");
             TimerText.text = "Game Over";
-        }
+        }*/
     }
 }
